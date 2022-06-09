@@ -13,7 +13,9 @@ using ParkyAPI.Repository;
 using ParkyAPI.Repository.IRepository;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace ParkyAPI
@@ -34,13 +36,22 @@ namespace ParkyAPI
                 (options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<INationalParkRepository, NationalParkRepository>();
             services.AddAutoMapper(typeof(ParkyMapping));
-            services.AddSwaggerGen(options => options.SwaggerDoc("ParkyOpenAPISpec", new Microsoft.OpenApi.Models.OpenApiInfo()
+            services.AddSwaggerGen(options =>
             {
+                options.SwaggerDoc("ParkyOpenAPISpec",
+                new Microsoft.OpenApi.Models.OpenApiInfo()
+                {
 
-                Title = "ParkyAPI",
-                Version = "1"
-            }
-            ));
+                    Title = "ParkyAPI",
+                    Version = "1"
+                });
+                var xmlCommentfile = $"{ Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlfullCommentpath = Path.Combine(AppContext.BaseDirectory, xmlCommentfile);
+                options.IncludeXmlComments(xmlfullCommentpath);
+
+
+
+            });
 
 
             services.AddControllers();
