@@ -57,7 +57,7 @@ namespace ParkyAPI.Repository
 
         }
 
-        public bool UpdateNatonalPark(NationalPark nationalPark)
+        public bool UpdateNationalPark(NationalPark nationalPark)
         {
             _db.NationalPark.Update(nationalPark);
 

@@ -15,7 +15,7 @@ namespace ParkyAPI.Repository.IRepository
         bool NationalParkExists(int id);
 
         bool CreatedNatonalPark(NationalPark nationalPark);
-        bool UpdateNatonalPark(NationalPark nationalPark);
+        bool UpdateNationalPark(NationalPark nationalPark);
         bool DeleteNatonalPark(NationalPark nationalPark);
 
         bool save();
