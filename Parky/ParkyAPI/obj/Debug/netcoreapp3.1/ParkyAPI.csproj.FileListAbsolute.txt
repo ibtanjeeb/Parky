@@ -40,3 +40,9 @@ G:\Parky API\Parky\Parky\ParkyAPI\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netc
 G:\Parky API\Parky\Parky\ParkyAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 G:\Parky API\Parky\Parky\ParkyAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 G:\Parky API\Parky\Parky\ParkyAPI\obj\Debug\netcoreapp3.1\ParkyAPI.csproj.CopyComplete
+G:\Parky API\Parky\Parky\ParkyAPI\bin\Debug\netcoreapp3.1\AutoMapper.dll
+G:\Parky API\Parky\Parky\ParkyAPI\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+G:\Parky API\Parky\Parky\ParkyAPI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+G:\Parky API\Parky\Parky\ParkyAPI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+G:\Parky API\Parky\Parky\ParkyAPI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+G:\Parky API\Parky\Parky\ParkyAPI\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
