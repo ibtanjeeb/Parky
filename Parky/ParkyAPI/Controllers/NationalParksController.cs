@@ -94,6 +94,25 @@ namespace ParkyAPI.Controllers
             return NoContent();
 
         }
+        [HttpDelete("{nationalParkid:int}", Name = "DeleteNationalPark")]
+        public IActionResult DeleteNationalPark(int nationalParkid)
+        {
+            if(!_npRepo.NationalParkExists(nationalParkid))
+            {
+                return NotFound();
+            }
+            var nationalparkobj = _npRepo.GetNationalPark(nationalParkid);
+
+            if (!_npRepo.DeleteNatonalPark(nationalparkobj))
+            {
+                ModelState.AddModelError("", $"Something went wrong when Deleting the record{nationalparkobj.Name}");
+                return StatusCode(500, ModelState);
+            }
+
+            return NoContent();
+
+
+        }
 
     }
 }
