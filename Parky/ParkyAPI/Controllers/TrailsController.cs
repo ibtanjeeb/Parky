@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ParkyAPI.Controllers
 {
-    [Route("api/[Trails]")]
+    [Route("api/Trails")]
     [ApiController]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public class TrailsController : Controller
@@ -69,7 +69,7 @@ namespace ParkyAPI.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult CreateTrail([FromBody]TrailDto trailDto)
+        public IActionResult CreateTrail([FromBody]TrailUpsertDto trailDto)
         {
 
             if (trailDto == null)
@@ -99,7 +99,7 @@ namespace ParkyAPI.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult UpdateTrail(int trailid, [FromBody]TrailDto trailDto)
+        public IActionResult UpdateTrail(int trailid, [FromBody]TrailUpsertDto trailDto)
         {
             if (trailDto == null|| trailid != trailDto.Id)
             {
