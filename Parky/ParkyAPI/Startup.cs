@@ -39,27 +39,53 @@ namespace ParkyAPI
             services.AddAutoMapper(typeof(ParkyMapping));
             services.AddSwaggerGen(options =>
             {
-                options.SwaggerDoc("ParkyOpenAPISpec",
+                options.SwaggerDoc("ParkyOpenAPISpecNP",
                 new Microsoft.OpenApi.Models.OpenApiInfo()
                 {
 
-                    Title = "ParkyAPI",
+                    Title = "ParkyAPI(National Park)",
                     Version = "1",
-                    Description="National Parky API",
-                    Contact=new Microsoft.OpenApi.Models.OpenApiContact()
+                    Description = "National Parky API NP",
+                    Contact = new Microsoft.OpenApi.Models.OpenApiContact()
                     {
-                        Email="threepointonefour1993@gmail.com",
-                        Name="Md. Tushon",
-                        Url= new Uri ("https://www.dotnetmastery.com/")
+                        Email = "threepointonefour1993@gmail.com",
+                        Name = "Md. Tushon",
+                        Url = new Uri("https://www.dotnetmastery.com/")
                     },
-                    License=new Microsoft.OpenApi.Models.OpenApiLicense()
+                    License = new Microsoft.OpenApi.Models.OpenApiLicense()
                     {
-                       Name="MIT License",
-                       Url=new Uri("https://en.wikipedia.org/wiki/MIT_License")
+                        Name = "MIT License",
+                        Url = new Uri("https://en.wikipedia.org/wiki/MIT_License")
+                    }
+                    
+                 
+
+
+
+                });
+                options.SwaggerDoc("ParkyOpenAPISpecTrails",
+                new Microsoft.OpenApi.Models.OpenApiInfo()
+                {
+
+                    Title = "ParkyAPI Tarils",
+                    Version = "1",
+                    Description = "National Parky API Tarils",
+                    Contact = new Microsoft.OpenApi.Models.OpenApiContact()
+                    {
+                        Email = "threepointonefour1993@gmail.com",
+                        Name = "Md. Tushon",
+                        Url = new Uri("https://www.dotnetmastery.com/")
+                    },
+                    License = new Microsoft.OpenApi.Models.OpenApiLicense()
+                    {
+                        Name = "MIT License",
+                        Url = new Uri("https://en.wikipedia.org/wiki/MIT_License")
                     }
 
 
-                    
+
+
+
                 });
                 var xmlCommentfile = $"{ Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlfullCommentpath = Path.Combine(AppContext.BaseDirectory, xmlCommentfile);
@@ -86,7 +112,8 @@ namespace ParkyAPI
             app.UseRouting();
             app.UseSwagger();
             app.UseSwaggerUI(options => {
-                options.SwaggerEndpoint("/swagger/ParkyOpenAPISpec/swagger.json", "Parky API");
+                options.SwaggerEndpoint("/swagger/ParkyOpenAPISpecNP/swagger.json", "Parky API(National Park)");
+                options.SwaggerEndpoint("/swagger/ParkyOpenAPISpecTrails/swagger.json", "Parky API Trails");
                 options.RoutePrefix = "";
             
             }
