@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "fPPLh46RQxDvb4vYeuU5gYMr6FzyE/Sn9Z17mNwlyRfgeAm5sCZsEfFy9bLwoe6LbPVYM5i42ZrQpJR9kUUmJA==",
+  "dgSpecHash": "0a5tJ3zLwxNX4/auBZZvdQkYmuoRQ/fT64mnoWhZxmXMgjmhuY08FlnDYnEojwgPLqk6c27AEYXdymrvGh8j4Q==",
   "success": true,
   "projectFilePath": "G:\\Parky API\\Parky\\Parky\\ParkyAPI\\ParkyAPI.csproj",
   "expectedPackageFiles": [
@@ -20,6 +20,8 @@
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.mvc.abstractions\\2.0.0\\microsoft.aspnetcore.mvc.abstractions.2.0.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.mvc.core\\2.0.0\\microsoft.aspnetcore.mvc.core.2.0.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.0.0-preview3-19153-02\\microsoft.aspnetcore.mvc.newtonsoftjson.3.0.0-preview3-19153-02.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\4.1.0\\microsoft.aspnetcore.mvc.versioning.4.1.0.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning.apiexplorer\\4.1.0\\microsoft.aspnetcore.mvc.versioning.apiexplorer.4.1.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.responsecaching.abstractions\\2.0.0\\microsoft.aspnetcore.responsecaching.abstractions.2.0.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.routing\\2.0.0\\microsoft.aspnetcore.routing.2.0.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.routing.abstractions\\2.0.0\\microsoft.aspnetcore.routing.abstractions.2.0.0.nupkg.sha512",
