@@ -81,12 +81,23 @@ namespace ParkyWeb.Controllers
                 return View(obj);
             }
         }
-
+       
 
         public async Task<IActionResult> GetAllNationalPark()
         {
 
             return Json(new { data = await _npRep.GetAllAsync(SD.NationalParkAPIPath) });
+
+        }
+         [HttpDelete]
+        public async Task<IActionResult>Delete(int id)
+        {
+            var status = await _npRep.DeleteAsync(SD.NationalParkAPIPath, id);
+            if(status)
+            {
+                return Json(new { success = true, message="Delete Sucessfully" });
+            }
+            return Json(new { success = false, message = "Delete Not Sucessfully" });
 
         }
     }
