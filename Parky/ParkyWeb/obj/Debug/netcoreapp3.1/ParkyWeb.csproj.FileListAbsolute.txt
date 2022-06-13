@@ -355,3 +355,4 @@ G:\Parky API\Parky\Parky\ParkyWeb\obj\Debug\netcoreapp3.1\ParkyWeb.MvcApplicatio
 G:\Parky API\Parky\Parky\ParkyWeb\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 G:\Parky API\Parky\Parky\ParkyWeb\obj\Debug\netcoreapp3.1\Razor\Views\NationalParks\Index.cshtml.g.cs
 G:\Parky API\Parky\Parky\ParkyWeb\obj\Debug\netcoreapp3.1\Razor\Views\NationalParks\Upsert.cshtml.g.cs
+G:\Parky API\Parky\Parky\ParkyWeb\obj\Debug\netcoreapp3.1\Razor\Views\Trails\Index.cshtml.g.cs
