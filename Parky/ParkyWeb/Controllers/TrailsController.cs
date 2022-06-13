@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Microsoft.AspNetCore.Mvc.Rendering;
 namespace ParkyWeb.Controllers
 {
     public class TrailsController : Controller
@@ -30,11 +30,14 @@ namespace ParkyWeb.Controllers
             IEnumerable<NationalPark> npList = await _npRep.GetAllAsync(SD.NationalParkAPIPath);
             TrailsVM objVM = new TrailsVM()
             {
-                NationalParkList = npList.Select(i => new Microsoft.AspNetCore.Mvc.Rendering.SelectListItem()
+                NationalParkList = npList.Select(i => new SelectListItem()
                 {
                     Text = i.Name,
                     Value = i.Id.ToString()
-                })
+                }),
+                Trail = new Trail()
+
+                
             };
 
 
@@ -73,7 +76,19 @@ namespace ParkyWeb.Controllers
             }
             else
             {
-                return View(objVM);
+                IEnumerable<NationalPark> npList = await _npRep.GetAllAsync(SD.NationalParkAPIPath);
+                TrailsVM objVM1 = new TrailsVM()
+                {
+                    NationalParkList = npList.Select(i => new SelectListItem()
+                    {
+                        Text = i.Name,
+                        Value = i.Id.ToString()
+                    }),
+                    Trail = objVM.Trail
+
+
+                };
+                return View(objVM1);
             }
         }
        
