@@ -33,7 +33,11 @@ namespace ParkyAPI.Repository
             var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
             var tokenDescriptor = new SecurityTokenDescriptor()
             {
-                Subject = new ClaimsIdentity(new Claim[] { new Claim(ClaimTypes.Name, user.Id.ToString()) }),
+                Subject = new ClaimsIdentity(new Claim[]
+                { 
+                    new Claim(ClaimTypes.Name, user.Id.ToString()),
+                    new Claim(ClaimTypes.Role,user.Role)
+                }),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
 
@@ -51,12 +55,29 @@ namespace ParkyAPI.Repository
 
         public bool IsUniqueUser(string username)
         {
-            throw new NotImplementedException();
+            var user = _db.Users.SingleOrDefault(i => i.Username == username);
+            if (user == null)
+            
+                return true;
+
+            
+
+            return false;
         }
 
         public User Register(string username, string password)
         {
-            throw new NotImplementedException();
+            User ObjUser = new User()
+            {
+                Username = username,
+                Password = password,
+                Role="admin"
+            };
+            _db.Users.Add(ObjUser);
+            _db.SaveChanges();
+            ObjUser.Password = "";
+            return ObjUser;
+
         }
     }
 }

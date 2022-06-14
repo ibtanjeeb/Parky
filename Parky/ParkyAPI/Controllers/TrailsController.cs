@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ParkyAPI.Models;
@@ -54,6 +55,7 @@ namespace ParkyAPI.Controllers
         [ProducesResponseType(200, Type = typeof(Trail))]
         [ProducesResponseType(404)]
         [ProducesDefaultResponseType]
+        [Authorize(Roles = "admin")]
         public IActionResult GetTrail(int trailid)
         {
             var obj = _trailRepo.GetTrail(trailid);
