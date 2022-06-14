@@ -29,6 +29,12 @@ namespace ParkyWeb
             services.AddScoped<ITrailRepository, TrailRepository>();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddHttpClient();
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(10);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+
+            });
             
         }
 
@@ -49,7 +55,15 @@ namespace ParkyWeb
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseCors(x => x
 
+                .AllowAnyMethod()
+                .AllowAnyOrigin()
+                .AllowAnyHeader()
+            );
+            app.UseSession();
+
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
