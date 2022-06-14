@@ -33,7 +33,7 @@ namespace ParkyWeb
                     options.Cookie.HttpOnly = true;
                     options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
                     options.LoginPath = "/Home/Login";
-                    options.AccessDeniedPath = "Home/AccessDenied";
+                    options.AccessDeniedPath = "/Home/AccessDenied";
                     options.SlidingExpiration = true;
 
                 });
@@ -78,9 +78,9 @@ namespace ParkyWeb
             );
             app.UseSession();
 
-            
-            app.UseAuthorization();
             app.UseAuthentication();
+            app.UseAuthorization();
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

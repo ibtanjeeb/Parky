@@ -9,9 +9,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ParkyWeb.Controllers
 {
+    [Authorize]
     public class TrailsController : Controller
     {
         private readonly INationalParkRepository _npRep;
@@ -26,7 +28,7 @@ namespace ParkyWeb.Controllers
         {
             return View(new Trail() { });
         }
-
+        [Authorize(Roles = "admin")]
         public async Task <IActionResult> Upsert(int? id)
         {
             IEnumerable<NationalPark> npList = await _npRep.GetAllAsync(SD.NationalParkAPIPath, HttpContext.Session.GetString("JWToken"));
@@ -102,6 +104,7 @@ namespace ParkyWeb.Controllers
 
         }
          [HttpDelete]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult>Delete(int id)
         {
             var status = await _trailRepo.DeleteAsync(SD.TrailAPIPath, id, HttpContext.Session.GetString("JWToken"));

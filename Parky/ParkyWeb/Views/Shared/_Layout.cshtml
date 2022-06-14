@@ -30,15 +30,21 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+
+
+                        @if(User.IsInRole("admin")|| User.IsInRole("test"))
+                        { 
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-controller="NationalParks" asp-action="Index">National Park</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-controller="Trails" asp-action="Index">Trail</a>
+                        </li>
+                        }
+
                         @if (httpacc.HttpContext.Session.GetString("JWToken") != null &&
-                  httpacc.HttpContext.Session.GetString("JWToken").ToString().Length > 0)
+                httpacc.HttpContext.Session.GetString("JWToken").ToString().Length > 0)
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-controller="NationalParks" asp-action="Index">National Park</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-controller="Trails" asp-action="Index">Trail</a>
-                            </li>
                             <li class="nav-item">
                                 <a class="nav-link text-white" asp-controller="Home" asp-action="Logout">Logout</a>
                             </li>
@@ -52,7 +58,7 @@
                                 <a class="nav-link text-white" asp-controller="Home" asp-action="Register">Register</a>
                             </li>
                         }
-                       
+
 
                     </ul>
                 </div>

@@ -359,3 +359,4 @@ G:\Parky API\Parky\Parky\ParkyWeb\obj\Debug\netcoreapp3.1\Razor\Views\Trails\Ind
 G:\Parky API\Parky\Parky\ParkyWeb\obj\Debug\netcoreapp3.1\Razor\Views\Trails\Upsert.cshtml.g.cs
 G:\Parky API\Parky\Parky\ParkyWeb\obj\Debug\netcoreapp3.1\Razor\Views\Home\Login.cshtml.g.cs
 G:\Parky API\Parky\Parky\ParkyWeb\obj\Debug\netcoreapp3.1\Razor\Views\Home\Register.cshtml.g.cs
+G:\Parky API\Parky\Parky\ParkyWeb\obj\Debug\netcoreapp3.1\Razor\Views\Home\AccessDenied.cshtml.g.cs
