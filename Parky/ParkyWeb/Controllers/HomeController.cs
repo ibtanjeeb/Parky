@@ -71,6 +71,7 @@ namespace ParkyWeb.Controllers
             var principal = new ClaimsPrincipal(identity);
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
             HttpContext.Session.SetString("JWToken",objUser.Token);
+            TempData["alert"] = "Welcome " + objUser.Username;
 
             return RedirectToAction("Index");
 
@@ -94,8 +95,8 @@ namespace ParkyWeb.Controllers
             {
                 return View();
             }
-           
 
+            TempData["alert"] = "Registration Successfully";
             return RedirectToAction("Login");
 
 
