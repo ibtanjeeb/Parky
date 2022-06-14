@@ -357,3 +357,5 @@ G:\Parky API\Parky\Parky\ParkyWeb\obj\Debug\netcoreapp3.1\Razor\Views\NationalPa
 G:\Parky API\Parky\Parky\ParkyWeb\obj\Debug\netcoreapp3.1\Razor\Views\NationalParks\Upsert.cshtml.g.cs
 G:\Parky API\Parky\Parky\ParkyWeb\obj\Debug\netcoreapp3.1\Razor\Views\Trails\Index.cshtml.g.cs
 G:\Parky API\Parky\Parky\ParkyWeb\obj\Debug\netcoreapp3.1\Razor\Views\Trails\Upsert.cshtml.g.cs
+G:\Parky API\Parky\Parky\ParkyWeb\obj\Debug\netcoreapp3.1\Razor\Views\Home\Login.cshtml.g.cs
+G:\Parky API\Parky\Parky\ParkyWeb\obj\Debug\netcoreapp3.1\Razor\Views\Home\Register.cshtml.g.cs

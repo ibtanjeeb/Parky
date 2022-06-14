@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ParkyWeb.Models;
 using ParkyWeb.Models.ViewModel;
@@ -16,19 +17,21 @@ namespace ParkyWeb.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly INationalParkRepository _npRepo;
         private readonly ITrailRepository _trailRepo;
-        public HomeController(ILogger<HomeController> logger,INationalParkRepository npRepo,ITrailRepository trailRepo)
+        private readonly IAccountRepository _accountRepo;
+        public HomeController(ILogger<HomeController> logger,INationalParkRepository npRepo,ITrailRepository trailRepo,IAccountRepository accountRepo)
         {
             _npRepo = npRepo;
             _trailRepo = trailRepo;
             _logger = logger;
+            _accountRepo = accountRepo;
         }
 
         public async Task<IActionResult> Index()
         {
             IndexVm indexVm = new IndexVm()
             {
-                NationalParkList = await _npRepo.GetAllAsync(SD.NationalParkAPIPath),
-                TrailList = await _trailRepo.GetAllAsync(SD.TrailAPIPath)
+                NationalParkList = await _npRepo.GetAllAsync(SD.NationalParkAPIPath,HttpContext.Session.GetString("JWToken")),
+                TrailList = await _trailRepo.GetAllAsync(SD.TrailAPIPath, HttpContext.Session.GetString("JWToken"))
 
             };
             return View(indexVm);
@@ -36,9 +39,67 @@ namespace ParkyWeb.Controllers
 
         public IActionResult Privacy()
         {
+
             return View();
         }
+        [HttpGet]
+        public IActionResult Login()
+        {
+            var obj = new User();
+           
 
+            return View(obj);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(User obj)
+        {
+            User objUser = await _accountRepo.LogInAsync(SD.AccountAPIPath+"authenticate/", obj);
+            if(objUser.Token==null)
+            {
+                return View();
+            }
+            HttpContext.Session.SetString("JWToken",objUser.Token);
+
+            return RedirectToAction("Index");
+
+
+          
+        }
+        [HttpGet]
+        public IActionResult Register()
+        {
+            
+
+
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(User obj)
+        {
+            bool objUser = await _accountRepo.RegisterAsync(SD.AccountAPIPath + "register/", obj);
+            if (objUser == false)
+            {
+                return View();
+            }
+           
+
+            return RedirectToAction("Login");
+
+
+
+        }
+
+        public IActionResult Logout()
+        {
+
+             HttpContext.Session.SetString("JWToken", "");
+            return RedirectToAction("Index");
+
+
+
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
